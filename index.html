@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flickr Search</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body class="container" ng-app="app" ng-controller="ctrl">
+  <h1>Flickr Search</h1>
+  <div class="row">
+    <div class="col-lg-3">
+      <label for="tag">Tag</label>
+      <input class="form-control" type="text" name="tag" ng-model="data.tag" required>  
+    </div>
+    <div class="col-lg-3">
+      <label>Limit results</label>
+      <select  class="form-control" ng-model="data.limit" ng-options="item as item.label for item in data.limitOptions track by item.value"></select>
+    </div>
+    <div class="col-lg-3">
+      <button class="btn btn-default" ng-click="search();">Search</button>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <span ng-repeat="item in data.results"><img ng-src="{{item.media.m}}"></span>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</html>
